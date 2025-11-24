@@ -1,9 +1,11 @@
+# Funcao auxiliar para escolher a proxima variavel
 def pick_variable(phi):
     for clause in phi:
         for lit in clause:
             return lit.lstrip('-')  # remove o '-' se existir
 
 
+# funcao auxiliar: reduzir a formula a partir da atribuicao da variavel atual
 def reduce_formula(phi, var, value):
     new_formula = []
 
@@ -35,7 +37,7 @@ def reduce_formula(phi, var, value):
 
     return new_formula
 
-
+# Funcao principal
 def backtrack(phi):
     # Caso 1: fórmula vazia (todas as cláusulas satisfeitas)
     if phi == []:
@@ -82,5 +84,6 @@ if __name__ == '__main__':
             aux = [ f"({' + '.join(x)})" for x in disjuncoes]
             print(f"{nome_formula} = {' . '.join(aux)}")
             print(backtrack(disjuncoes))
+
 
 
