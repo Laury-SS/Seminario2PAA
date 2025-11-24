@@ -23,6 +23,9 @@ https://scispace.com/pdf/handbook-of-satisfiability-2dsvkz551d.pdf
 # Formato de entrada
 A fórmula / expressão deve estar na forma conjuntiva normal (CNF).
 
+É possível utilizar esta ferramenta para CNF:
+https://www.learnmathclass.com/logic/propositional-logic/syntax/normal-forms
+
 Para testar mais de uma fórmula, é possivel adicionar no arquivo exemplos.txt.
 o formato é:
 
