@@ -8,7 +8,7 @@ backtrack(ϕ):
     let x = pick_variable(ϕ)
     return backtrack(ϕ|x) OR backtrack(ϕ|¬x)
 fontes:
-https://www.cis.upenn.edu/~cis1890/files/Lecture3.pdf
+https://www.cis.upenn.edu/~cis1890/files/Lecture3.pdf \\
 https://scispace.com/pdf/handbook-of-satisfiability-2dsvkz551d.pdf
 
 # Formato de entrada
