@@ -38,24 +38,32 @@ def reduce_formula(phi, var, value):
     return new_formula
 
 # Funcao principal
-def backtrack(phi):
-    # Caso 1: fórmula vazia (todas as cláusulas satisfeitas)
+def backtrack(phi, assignment=None):
+    if assignment is None:
+        assignment = {}
+
+    # Caso 1: fórmula vazia → solução encontrada
     if phi == []:
-        return True
+        return assignment
 
-    # Caso 2: cláusula vazia presente (contradição)
+    # Caso 2: cláusula vazia → contradição
     if any(clause == [] for clause in phi):
-        return False
+        return None
 
-    # Escolha de variável (pega o primeiro literal da primeira cláusula)
+    # variável escolhida
     x = pick_variable(phi)
 
-    # Tenta atribuir x = True
-    if backtrack(reduce_formula(phi, x, True)):
-        return True
+    # Tenta x = True
+    new_assign = assignment.copy()
+    new_assign[x] = True
+    result = backtrack(reduce_formula(phi, x, True), new_assign)
+    if result is not None:
+        return result
 
-    # Tenta atribuir x = False
-    return backtrack(reduce_formula(phi, x, False))
+    # Tenta x = False
+    new_assign = assignment.copy()
+    new_assign[x] = False
+    return backtrack(reduce_formula(phi, x, False), new_assign)
 
 
 if __name__ == '__main__':
@@ -65,8 +73,11 @@ if __name__ == '__main__':
         ["-x1"],
         ["-x2"]
     ]
+    aux = [f"({' + '.join(x)})" for x in phi]
+    print(f"phi = {' . '.join(aux)}")
     # Para essa entrada, o resultado deve ser falso
-    print(backtrack(phi))
+    print(False if backtrack(phi) is None else True)
+    print()
 
     # Resolução das instâncias apresentadas
     # o formato de cada problema é -> nome_da_formula:disjunção1;disjunção2;...
@@ -81,9 +92,15 @@ if __name__ == '__main__':
             nome_formula, disjuncoes = line.split('\n')[0].split(':')
             disjuncoes = [y.split(",") for y in disjuncoes.split(";")]
 
-            aux = [ f"({' + '.join(x)})" for x in disjuncoes]
+            aux = [f"({' + '.join(x)})" for x in disjuncoes]
             print(f"{nome_formula} = {' . '.join(aux)}")
-            print(backtrack(disjuncoes))
 
+            solucao = backtrack(disjuncoes)
 
-
+            if solucao is None:
+                print("Insatisfatível")
+            else:
+                # imprime a solução formatada
+                for var, val in solucao.items():
+                    print(f"{var} = {val}")
+            print()
