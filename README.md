@@ -87,4 +87,3 @@ B = True
 
 
 
-Não é obrigatório usar A, B, C, etc para variáveis. (Ex: x,y,z,etc)
