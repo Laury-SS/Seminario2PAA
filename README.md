@@ -3,7 +3,7 @@ Este repositório contém os materiais do segundo seminário da disciplina Proje
 
 # Apresentação
 O vídeo da apresentação do seminário está disponível no YouTube:
-👉 
+👉 [Assistir no Youtube](https://www.youtube.com/watch?v=txrzmP4qpCE)
 
 [Slides da apresentação](ProblemadeSatisfaçãoBooleana_Lauryane.pdf)
 
