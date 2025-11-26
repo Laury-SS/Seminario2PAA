@@ -5,6 +5,8 @@ Este repositório contém os materiais do segundo seminário da disciplina Proje
 O vídeo da apresentação do seminário está disponível no YouTube:
 👉 
 
+[Slides da apresentação](ProblemadeSatisfaçãoBooleana_Lauryane.pdf)
+
 # Conteúdo do Repositório
 Slides: ProblemadeSatisfaçãoBooleana_Lauryane.pdf
 Código-fonte: implementação de um resolvedor de SAT em Python usando backtracking.
